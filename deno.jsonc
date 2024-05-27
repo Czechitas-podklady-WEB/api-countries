@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "dev": "deno serve --watch server.js",
+    "start": "deno serve server.js",
+    "download": "deno run --allow-net --allow-write download.js"
+  }
+}
