@@ -1,4 +1,5 @@
 import { HTTPException, Hono } from 'https://deno.land/x/hono/mod.ts';
+import { cors } from "https://deno.land/x/hono@v4.3.11/middleware/cors/index.ts";
 import countries from './countries.json' with {type: "json"};
 
 const findByCode = (codeType) => {
@@ -13,7 +14,7 @@ const findByCode = (codeType) => {
 }
 
 const app = new Hono()
-
+app.use('/*', cors())
 app.get('/v1/iso2/:code', findByCode("alpha2Code"));
 app.get('/v1/iso3/:code', findByCode("alpha3Code"));
 
